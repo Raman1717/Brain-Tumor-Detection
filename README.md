@@ -1,8 +1,5 @@
 # NeuroScan - AI-Powered Brain Tumor Detection System
 
-![NeuroScan Logo](https://via.placeholder.com/150x50?text=NeuroScan) 
-*(Add your actual logo image here)*
-
 ## Overview
 
 NeuroScan is an advanced medical diagnostic tool that uses artificial intelligence to detect brain tumors in MRI scans. This system provides healthcare professionals with a fast, accurate, and user-friendly interface for analyzing patient MRI images and generating comprehensive diagnostic reports.
@@ -90,7 +87,7 @@ cd ../frontend
 python -m http.server 8000
 Access the application at http://localhost:8000/login.html
 
-Usage Instructions
+### Usage Instructions
 Login: Medical professionals log in using secure credentials
 
 Username: abc
@@ -115,7 +112,7 @@ Results: View the tumor detection results with confidence level
 
 Report: Generate and download a PDF report with all patient information
 
-Security Features
+### Security Features
 Right-click and developer tools disabled
 
 Rate limiting for login attempts (5 attempts per minute)
@@ -128,7 +125,7 @@ Secure content policies (CSP)
 
 CSRF token protection
 
-API Endpoints
+### API Endpoints
 POST /predict - Process MRI image and return tumor detection results
 
 Required form data:
