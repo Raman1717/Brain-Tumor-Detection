@@ -1,135 +1,84 @@
 # NeuroScan - AI-Powered Brain Tumor Detection System
 
-## Overview
+NeuroScan is a smart medical tool that uses AI (VGG19 model) to detect brain tumors in MRI scans. It provides fast, accurate results through a secure and intuitive web interface.
 
-NeuroScan is an advanced medical diagnostic tool that uses artificial intelligence to detect brain tumors in MRI scans. This system provides healthcare professionals with a fast, accurate, and user-friendly interface for analyzing patient MRI images and generating comprehensive diagnostic reports.
+## Features
+- AI tumor detection (VGG19)
+- Patient record management
+- Secure professional login
+- MRI scan upload & analysis
+- Auto PDF report generation
+- MySQL-backed storage
 
-## Key Features
+## Tech Stack
+- Frontend: HTML, CSS, JS, Animate.css, Font Awesome, html2pdf.js
+- Backend: Python (Flask, Flask-CORS), TensorFlow/Keras, MySQL
+- Image Processing: OpenCV, NumPy
 
-- **AI-Powered Analysis**: Utilizes a trained VGG19 deep learning model for accurate tumor detection
-- **Patient Management**: Complete patient information tracking and record-keeping
-- **Secure Access**: Professional login system with security measures
-- **Interactive Dashboard**: User-friendly interface for uploading and analyzing scans
-- **Report Generation**: Automatic PDF report generation with patient details and results
-- **Database Integration**: MySQL database for storing patient records and scan results
+## Folder Structure
+- `frontend/` → login.html, Dashboard.html, report.html, style.css
+- `backend/` → app.py, vgg19_model_03.h5
+- `database/` → MySQL scripts
+- `README.md`
 
-## Technology Stack
-
-### Frontend
-- HTML5, CSS3, JavaScript
-- Animate.css for animations
-- Font Awesome for icons
-- html2pdf.js for PDF generation
-- Poppins Google Font
-
-### Backend
-- Python with Flask framework
-- Flask-CORS for cross-origin requests
-- MySQL database
-- TensorFlow/Keras for machine learning
-
-### Image Processing
-- OpenCV for image preprocessing
-- NumPy for numerical operations
-
-## System Architecture
-NeuroScan/
-├── frontend/ # Web interface
-│ ├── login.html # Medical professional login
-│ ├── Dashboard.html # Main application interface
-│ ├── report.html # Report generation page
-│ ├── style.css # Main stylesheet
-│ └── login_css.css # Login page styles
-├── backend/
-│ ├── app.py # Flask application
-│ └── vgg19_model_03.h5 # Trained ML model
-├── database/ # Database scripts
-└── README.md # This file
-
-text
-
-## Installation Guide
+## Setup Instructions
 
 ### Prerequisites
 - Python 3.8+
 - MySQL Server
-- Node.js (for development)
+- Node.js
 
-### Backend Setup
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/NeuroScan.git
-   cd NeuroScan/backend
-Create and activate a virtual environment:
+### 1. Clone the Repo
+```bash
+git clone https://github.com/yourusername/NeuroScan.git
+```
 
-bash
+### 2. Backend Setup
+```bash
+cd NeuroScan/backend
 python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-Install dependencies:
-
-bash
+source venv/bin/activate  # Windows: venv\Scripts\activate
 pip install flask flask-cors tensorflow opencv-python mysql-connector-python
-Set up MySQL database:
+```
 
-Create a database named BrainTumorDB
-
-Update the db_config in app.py with your MySQL credentials
-
-Run the Flask application:
-
-bash
+- Create a MySQL database named `BrainTumorDB`
+- Update DB credentials in `app.py`
+- Run the app:
+```bash
 python app.py
-Frontend Setup
-The frontend files can be served from any web server. For development:
+```
 
-bash
+### 3. Frontend Setup
+```bash
 cd ../frontend
 python -m http.server 8000
-Access the application at http://localhost:8000/login.html
+```
+Open in browser: `http://localhost:8000/login.html`
 
-### Usage Instructions
-Login: Medical professionals log in using secure credentials
+## Usage
+- Login: `abc / abc@123`
+- Enter patient info (name, phone, age, blood type)
+- Upload MRI image → Click "Analyze"
+- View results → Generate PDF report
 
-Username: abc
+## Security Features
+- Disabled right-click & dev tools
+- Login rate limit (5/min)
+- Session timeout (5 mins)
+- CSRF protection, CSP, strong password rules
 
-Password: abc@123
+## API Endpoint
 
-Patient Information: Enter patient details including:
+### POST /predict
+**Form Data:**
+- `file`: MRI image file
+- `name`: Patient name
+- `phn`: Phone number
+- `age`: Age
+- `bloodType`: Blood type
 
-Full name
+**Response:** Tumor result + confidence level
 
-Phone number
+---
 
-Age
-
-Blood type
-
-MRI Upload: Drag and drop or browse to upload an MRI scan image
-
-Analysis: Click "Analyze MRI Scan" to process the image
-
-Results: View the tumor detection results with confidence level
-
-Report: Generate and download a PDF report with all patient information
-
-### Security Features
-Right-click and developer tools disabled
-
-Rate limiting for login attempts (5 attempts per minute)
-
-Session timeout after 5 minutes of inactivity
-
-Password complexity requirements
-
-Secure content policies (CSP)
-
-CSRF token protection
-
-### API Endpoints
-POST /predict - Process MRI image and return tumor detection results
-Required form data:
-file: MRI image file
-name: Patient name
-phn: Patient phone number
-age: Patient age
-bloodType: Patient blood type
+© 2025 NeuroScan | Precision Diagnosis Powered by AI
