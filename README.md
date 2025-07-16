@@ -30,7 +30,7 @@ NeuroScan is a smart medical tool that uses AI (VGG19 model) to detect brain tum
 
 ### 1. Clone the Repo
 ```bash
-git clone https://github.com/yourusername/NeuroScan.git
+https://github.com/Raman1717/Brain-Tumor-Detection/blob/main/README.md
 ```
 
 ### 2. Backend Setup
