@@ -127,15 +127,9 @@ CSRF token protection
 
 ### API Endpoints
 POST /predict - Process MRI image and return tumor detection results
-
 Required form data:
-
 file: MRI image file
-
 name: Patient name
-
 phn: Patient phone number
-
 age: Patient age
-
 bloodType: Patient blood type
